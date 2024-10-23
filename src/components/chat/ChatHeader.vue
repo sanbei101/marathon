@@ -1,0 +1,36 @@
+<template>
+  <n-layout-header>
+    <n-flex justify="space-between" align="center" style="padding: 0.3rem 1rem">
+      <n-dropdown :options="dropOptions" trigger="click">
+        <n-button tertiary type="success"> 选择模型 </n-button>
+      </n-dropdown>
+
+      <n-space align="center">
+        <n-icon>
+          <ChatbubbleOutline />
+        </n-icon>
+        <n-p> 临时聊天 </n-p>
+      </n-space>
+
+      <n-avatar round size="medium">
+        <n-icon>
+          <PeopleCircleSharp />
+        </n-icon>
+      </n-avatar>
+    </n-flex>
+  </n-layout-header>
+</template>
+
+<script lang="ts" setup>
+import { ChatbubbleOutline, PeopleCircleSharp } from '@vicons/ionicons5';
+const dropOptions = [
+  {
+    label: 'Deepseek-Chat',
+    key: 'deepseek-chat'
+  },
+  {
+    label: 'Deepseek-Coder',
+    key: 'deepseek-coder'
+  }
+];
+</script>
