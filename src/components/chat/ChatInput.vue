@@ -1,6 +1,7 @@
 <template>
   <n-layout-footer
     style="
+      z-index: 10;
       position: fixed;
       bottom: 4rem;
       left: 55%;
@@ -16,7 +17,5 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
 const message = ref<string>('');
 </script>

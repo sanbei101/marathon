@@ -7,7 +7,7 @@
 
       <n-layout>
         <chat-header />
-
+        <chat-message />
         <chat-input />
       </n-layout>
     </n-layout>
