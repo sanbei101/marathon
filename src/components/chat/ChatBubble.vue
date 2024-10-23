@@ -14,7 +14,7 @@ const props = defineProps({
   },
   position: {
     type: String,
-    default: 'left' // 默认是左侧
+    default: 'left'
   }
 });
 
