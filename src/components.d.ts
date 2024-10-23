@@ -7,10 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AppMenu: typeof import('./components/AppMenu.vue')['default']
     ChatHeader: typeof import('./components/ChatHeader.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
+    NDivider: typeof import('naive-ui')['NDivider']
+    NFlex: typeof import('naive-ui')['NFlex']
+    NGlobalStyle: typeof import('naive-ui')['NGlobalStyle']
     NInput: typeof import('naive-ui')['NInput']
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
@@ -20,5 +24,7 @@ declare module 'vue' {
     NMenu: typeof import('naive-ui')['NMenu']
     NMenuItem: typeof import('naive-ui')['NMenuItem']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
   }
 }
