@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :theme="darkTheme">
+  <n-config-provider>
     <n-message-provider>
       <n-global-style />
       <n-layout has-sider style="height: 100vh">
@@ -12,7 +12,8 @@
           <chat-header />
 
           <!-- 聊天消息列表 -->
-          <chat-message />
+          <!-- <chat-message /> -->
+          <MindMap />
 
           <!-- 底部输入框 -->
           <chat-input />
@@ -23,5 +24,5 @@
 </template>
 
 <script setup lang="ts">
-import { darkTheme } from 'naive-ui';
+import MindMap from './components/map/MindMap.vue';
 </script>

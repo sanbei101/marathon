@@ -12,6 +12,7 @@ declare module 'vue' {
     ChatHeader: typeof import('./components/chat/ChatHeader.vue')['default']
     ChatInput: typeof import('./components/chat/ChatInput.vue')['default']
     ChatMessage: typeof import('./components/chat/ChatMessage.vue')['default']
+    MindMap: typeof import('./components/map/MindMap.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
