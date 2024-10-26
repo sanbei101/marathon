@@ -10,12 +10,8 @@
 
 <script setup lang="ts">
 import ChatBubble from '@/components/chat/ChatBubble.vue';
-import { useChatContextStore, useFormDataStore, useMessageStore } from '@/store';
+import { useMessageStore } from '@/store';
 let index: number = 0;
-const userData = useFormDataStore();
-const chatContext = useChatContextStore();
-const MyContext = userData.getFormattedData();
-const HerContext = chatContext.getHerContext;
 
 const messageStore = useMessageStore();
 
@@ -39,7 +35,7 @@ const replyMessage = async () => {
     const stream = await openai.chat.completions.create({
       model: 'deepseek-chat',
       messages: [
-        { role: 'system', content: getSystemPrompt(MyContext, HerContext) },
+        { role: 'system', content: getSystemPrompt() },
         { role: 'user', content: messageStore.messages[aiMessageIndex - 1].content }
       ],
       stream: true
@@ -63,7 +59,11 @@ const replyMessage = async () => {
   }
 };
 
-const candidateMessage: string[] = ['在吗,吃了没', '下午去看电影吗', '晚上出去玩吗'];
+const candidateMessage: string[] = [
+  '最近有个新出的VR体验,听说特别逼真。想一起去感受下未来的科技世界吗?',
+  '听说电影院新上了4D科幻大片,沉浸感超强。有没有兴趣今晚一起去体验一下？',
+  '看到有家咖啡馆推出了AI点单系统,不知道好不好用,要不要晚上一起去试试，感受一下智能服务?'
+];
 const sendMessage = async () => {
   if (!nextMessage.value) {
     return;

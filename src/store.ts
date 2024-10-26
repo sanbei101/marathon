@@ -98,7 +98,7 @@ export const useFormDataStore = defineStore('formData', {
       this.other = data.other;
     },
     getFormattedData(): string {
-      return `用户的基本信息：
+      return `你的基本信息：
       年龄：${this.age ?? '未提供'}
       职业：${this.occupation || '未提供'}
 
@@ -131,12 +131,14 @@ export const useFormDataStore = defineStore('formData', {
 export const useChatContextStore = defineStore('chatContext', {
   state: () => ({
     chatArea: '',
-    chatUser: ''
+    chatUser: '',
+    chatCharacter: ''
   }),
   getters: {
     getChatArea: (state) => state.chatArea,
     getChatUser: (state) => state.chatUser,
-    getHerContext: (state) => state.chatArea + state.chatArea
+    getChatCharacter: (state) => state.chatCharacter,
+    getHerContext: (state) => state.chatArea + state.chatArea + state.chatCharacter
   },
   actions: {
     setChatArea(newChatArea: string) {
@@ -144,6 +146,9 @@ export const useChatContextStore = defineStore('chatContext', {
     },
     setChatUser(newChatUser: string) {
       this.chatUser = newChatUser;
+    },
+    setChatCharacter(newChatCharacter: string) {
+      this.chatCharacter = newChatCharacter;
     }
   }
 });

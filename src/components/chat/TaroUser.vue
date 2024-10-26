@@ -22,6 +22,7 @@ const navigateToChat = () => {
   console.log('navigateToChat');
   chatContext.setChatArea(Images[currentIndex.value].name);
   chatContext.setChatUser(selectedCards.value[0].name);
+  chatContext.setChatCharacter(selectedCards.value[0].mean);
 
   router.push('/social');
 };
@@ -77,7 +78,7 @@ const currentIndex = ref<number>(0);
     <n-statistic tabular-nums>
       <template #prefix> 根据系统测算,您的和{{ selectedCards[0].name }}的匹配度是 </template>
 
-      <n-number-animation ref="numberAnimationInstRef" :from="0.0" :to="24.0" :precision="2" />
+      <n-number-animation ref="numberAnimationInstRef" :from="0.0" :to="95.32" :precision="2" />
       <template #suffix> %</template>
     </n-statistic>
     <n-carousel
