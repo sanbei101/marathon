@@ -10,14 +10,20 @@
 
 <script setup lang="ts">
 import ChatBubble from '@/components/chat/ChatBubble.vue';
-import { useMessageStore } from '@/store';
+import { useChatContextStore, useFormDataStore, useMessageStore } from '@/store';
 let index: number = 0;
+const userData = useFormDataStore();
+const chatContext = useChatContextStore();
+const MyContext = userData.getFormattedData();
+const HerContext = chatContext.getHerContext;
+
 const messageStore = useMessageStore();
 
 const messages = messageStore.messages;
 
 const message = useMessage();
 import { openai } from '@/utils';
+import { getSystemPrompt } from './chatPrompt';
 const nextMessage = ref<boolean>(true);
 const replyMessage = async () => {
   if (messageStore.messages.length === 0) {
@@ -33,7 +39,7 @@ const replyMessage = async () => {
     const stream = await openai.chat.completions.create({
       model: 'deepseek-chat',
       messages: [
-        { role: 'system', content: '你现在要模仿迪丽热巴,回答我的问题' },
+        { role: 'system', content: getSystemPrompt(MyContext, HerContext) },
         { role: 'user', content: messageStore.messages[aiMessageIndex - 1].content }
       ],
       stream: true
