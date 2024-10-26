@@ -62,7 +62,7 @@ const replyMessage = async () => {
 const candidateMessage: string[] = [
   '最近有个新出的VR体验,听说特别逼真。想一起去感受下未来的科技世界吗?',
   '听说电影院新上了4D科幻大片,沉浸感超强。有没有兴趣今晚一起去体验一下？',
-  '看到有家咖啡馆推出了AI点单系统,不知道好不好用,要不要晚上一起去试试，感受一下智能服务?'
+  '看到有家咖啡馆推出了AI点单系统,不知道好不好用,要不要晚上一起去试试,感受一下智能服务?'
 ];
 const sendMessage = async () => {
   if (!nextMessage.value) {

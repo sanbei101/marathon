@@ -29,7 +29,7 @@ const navigateToChat = () => {
 
   router.push('/social');
 };
-
+const message = useMessage();
 const Images = [
   {
     src: 'https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg',
@@ -53,6 +53,21 @@ const onIndexUpdate = (newIndex: number) => {
   console.log('当前索引:', newIndex); // 实时输出当前索引值
 };
 const currentIndex = ref<number>(0);
+
+const fit = ref<number>(0);
+
+watch(
+  () => selectedCards.value,
+  () => {
+    if (selectedCards.value[0].name === '马斯克') {
+      fit.value = 100;
+      message.success('恭喜你发现了彩蛋,选中了独一无二的自己', { duration: 5000 });
+      message.success('自己和自己的匹配度当然是100%', { duration: 5000 });
+    } else {
+      fit.value = 92.35;
+    }
+  }
+);
 </script>
 
 <template>
@@ -81,7 +96,7 @@ const currentIndex = ref<number>(0);
     <n-statistic tabular-nums>
       <template #prefix> 根据系统测算,您的和{{ selectedCards[0].name }}的匹配度是 </template>
 
-      <n-number-animation ref="numberAnimationInstRef" :from="0.0" :to="95.32" :precision="2" />
+      <n-number-animation ref="numberAnimationInstRef" :from="0.0" :to="fit" :precision="2" />
       <template #suffix> %</template>
     </n-statistic>
     <n-carousel
