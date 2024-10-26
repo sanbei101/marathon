@@ -5,7 +5,10 @@ import Card from './UserCard.vue';
 import { GetTaroCardByid1, TaroCard } from '@/utils';
 import { useRouter } from 'vue-router';
 import { useChatContextStore } from '@/store';
-const loading = ref<boolean>(false);
+const loading = defineModel('loading', {
+  type: Boolean,
+  default: true
+});
 const ShowCard = ref<boolean>(false);
 const showModal = ref<boolean>(false);
 const selectedCards = ref<TaroCard[]>([]);

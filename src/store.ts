@@ -137,8 +137,7 @@ export const useChatContextStore = defineStore('chatContext', {
   getters: {
     getChatArea: (state) => state.chatArea,
     getChatUser: (state) => state.chatUser,
-    getChatCharacter: (state) => state.chatCharacter,
-    getHerContext: (state) => state.chatArea + state.chatArea + state.chatCharacter
+    getChatCharacter: (state) => state.chatCharacter
   },
   actions: {
     setChatArea(newChatArea: string) {

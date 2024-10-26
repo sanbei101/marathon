@@ -32,7 +32,7 @@
 
     <!-- Other Components -->
   </div>
-  <TaroUser />
+  <TaroUser v-model:loading="loading" />
 </template>
 
 <script setup lang="ts">
@@ -62,12 +62,16 @@ const tempMessages = [
 const currentMessage = ref<string>('');
 let messageIndex = 0;
 
+const loading = ref<boolean>(true); // 按钮loading状态
+
 // Display next message
 const displayNextMessage = () => {
   if (messageIndex < tempMessages.length) {
     currentMessage.value = tempMessages[messageIndex];
     messageIndex++;
     setTimeout(displayNextMessage, 4000 / tempMessages.length);
+  } else {
+    loading.value = false; // 倒计时结束后关闭loading状态
   }
 };
 

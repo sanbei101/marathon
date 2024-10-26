@@ -25,7 +25,7 @@
 
 <script setup lang="ts">
 import { NIcon, type MenuOption } from 'naive-ui';
-import { HomeOutline, SettingsOutline, InfiniteOutline } from '@vicons/ionicons5';
+import { HomeOutline, InfiniteOutline } from '@vicons/ionicons5';
 import { renderIcon } from '@/utils';
 import { RouterLink } from 'vue-router';
 const collapsed = ref<boolean>(false);
@@ -41,16 +41,16 @@ const menuOptions: MenuOption[] = [
       }),
     icon: renderIcon(HomeOutline)
   },
-  {
-    key: '个人形象',
-    label: () =>
-      h(RouterLink, {
-        to: {
-          name: 'PersonMap'
-        }
-      }),
-    icon: renderIcon(SettingsOutline)
-  },
+  // {
+  //   key: '个人形象',
+  //   label: () =>
+  //     h(RouterLink, {
+  //       to: {
+  //         name: 'PersonMap'
+  //       }
+  //     }),
+  //   icon: renderIcon(SettingsOutline)
+  // },
   {
     key: 'Chat',
     label: () =>
