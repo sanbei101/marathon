@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ChatbubbleOutline, PeopleCircleSharp } from '@vicons/ionicons5';
+import { ChatbubbleOutline } from '@vicons/ionicons5';
 const dropOptions = [
   {
     label: '群聊模式',
