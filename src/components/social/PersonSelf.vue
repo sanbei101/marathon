@@ -1,5 +1,5 @@
 <template>
-  <n-card title="介绍一下你自己">
+  <n-card title="介绍一下你自己(以马斯克为例)" embedded>
     <n-form>
       <!-- 基本信息 -->
       <n-form-item label="您的年龄是？">
@@ -17,36 +17,36 @@
 
       <n-form-item label="您认为自己在社交中属于以下哪种类型？">
         <n-radio-group v-model:value="formData.socialType">
-          <n-radio value="introvert">内向</n-radio>
-          <n-radio value="extrovert">外向</n-radio>
-          <n-radio value="ambivert">两者皆有</n-radio>
+          <n-radio value="内向">内向</n-radio>
+          <n-radio value="外向">外向</n-radio>
+          <n-radio value="两者皆有">两者皆有</n-radio>
         </n-radio-group>
       </n-form-item>
 
       <n-form-item label="您在沟通时是否倾向于主动还是被动？">
         <n-radio-group v-model:value="formData.communicationApproach">
-          <n-radio value="active">主动</n-radio>
-          <n-radio value="passive">被动</n-radio>
+          <n-radio value="主动">主动</n-radio>
+          <n-radio value="被动">被动</n-radio>
         </n-radio-group>
       </n-form-item>
 
       <n-form-item label="您的沟通风格是偏理性、感性、还是幽默？">
         <n-radio-group v-model:value="formData.communicationStyle">
-          <n-radio value="rational">理性</n-radio>
-          <n-radio value="emotional">感性</n-radio>
-          <n-radio value="humorous">幽默</n-radio>
+          <n-radio value="理性">理性</n-radio>
+          <n-radio value="感性">感性</n-radio>
+          <n-radio value="幽默">幽默</n-radio>
         </n-radio-group>
       </n-form-item>
 
       <!-- 兴趣爱好模块 -->
       <n-form-item label="您的主要兴趣爱好是什么？">
         <n-checkbox-group v-model:value="formData.hobbies">
-          <n-checkbox value="reading">阅读</n-checkbox>
-          <n-checkbox value="sports">运动</n-checkbox>
-          <n-checkbox value="traveling">旅游</n-checkbox>
-          <n-checkbox value="music">音乐</n-checkbox>
-          <n-checkbox value="movies">电影</n-checkbox>
-          <n-checkbox value="gaming">游戏</n-checkbox>
+          <n-checkbox value="阅读">阅读</n-checkbox>
+          <n-checkbox value="运动">运动</n-checkbox>
+          <n-checkbox value="物理">物理</n-checkbox>
+          <n-checkbox value="音乐">音乐</n-checkbox>
+          <n-checkbox value="编程">编程</n-checkbox>
+          <n-checkbox value="探索">探索</n-checkbox>
         </n-checkbox-group>
       </n-form-item>
 
@@ -57,25 +57,25 @@
       <!-- 沟通偏好模块 -->
       <n-form-item label="您的日常沟通语言偏好是？">
         <n-radio-group v-model:value="formData.communicationTone">
-          <n-radio value="formal">正式</n-radio>
-          <n-radio value="casual">随意</n-radio>
-          <n-radio value="humorous">幽默</n-radio>
-          <n-radio value="professional">专业</n-radio>
+          <n-radio value="正式">正式</n-radio>
+          <n-radio value="随意">随意</n-radio>
+          <n-radio value="幽默">幽默</n-radio>
+          <n-radio value="专业">专业</n-radio>
         </n-radio-group>
       </n-form-item>
 
       <n-form-item label="您更喜欢主动分享还是倾听他人的观点？">
         <n-radio-group v-model:value="formData.sharingPreference">
-          <n-radio value="sharing">主动分享</n-radio>
-          <n-radio value="listening">倾听他人</n-radio>
+          <n-radio value="主动分享">主动分享</n-radio>
+          <n-radio value="倾听他人">倾听他人</n-radio>
         </n-radio-group>
       </n-form-item>
 
       <!-- 情绪管理与表达模块 -->
-      <n-form-item label="您认为自己容易情绪外露还是内敛？">
+      <n-form-item label="您认为自己的表达风格？">
         <n-radio-group v-model:value="formData.emotionalExpression">
-          <n-radio value="outward">情绪外露</n-radio>
-          <n-radio value="reserved">内敛</n-radio>
+          <n-radio value="表达风格相对严肃">情绪外露</n-radio>
+          <n-radio value="表达风格相对活泼">表达内敛</n-radio>
         </n-radio-group>
       </n-form-item>
 
@@ -96,31 +96,20 @@ import { useRouter } from 'vue-router';
 import { useFormDataStore } from '@/store';
 const formDataStore = useFormDataStore();
 const formData = ref({
-  // 基本信息
-  age: 25, // 默认年龄设为25岁
-  occupation: '学生', // 默认职业
-
-  // 个性特征模块
-  personality: '温和', // 默认性格特点
-  socialType: 'ambivert', // 默认为两者皆有（内向和外向）
-  communicationApproach: 'active', // 默认为主动
-  communicationStyle: 'rational', // 默认为理性
-  socialPreference: 'like', // 默认社交偏好为喜欢
-
-  // 兴趣爱好模块
-  hobbies: ['阅读', '音乐'], // 默认爱好
-  favoriteActivity: '散步', // 默认喜欢的活动
-
-  // 沟通偏好模块
-  communicationTone: '随意', // 默认语言偏好
-  sharingPreference: 'sharing', // 默认倾向为主动分享
-
-  // 情绪管理与表达模块
-  emotionalExpression: 'outward', // 默认情绪表达方式为外露
-  happyExpression: '直接表达', // 默认表达愉悦的方式
-
-  // 其他描述
-  other: '暂无其他描述' // 默认其他描述
+  age: 24,
+  occupation: '企业家',
+  personality: '外向',
+  socialType: '外向',
+  communicationApproach: '主动',
+  communicationStyle: '理性',
+  socialPreference: '热爱交流社交',
+  hobbies: ['编程', '探索', '物理'],
+  favoriteActivity: '科技, 太空探索',
+  communicationTone: '正式',
+  sharingPreference: '主动分享',
+  emotionalExpression: '表达风格相对严肃',
+  happyExpression: '直接表达',
+  other: '一个二十岁的企业家,热爱创新,热衷科技'
 });
 
 const router = useRouter();

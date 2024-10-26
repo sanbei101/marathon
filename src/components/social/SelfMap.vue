@@ -4,9 +4,13 @@
       <div class="loading-spinner"></div>
       <div class="loading-text">正在生成人物肖像...</div>
     </div>
-    <mindmap v-if="showMindmap" :modelValue="mindmapData" key="mindmap"></mindmap>
+    <n-flex justify="center">
+      <n-gradient-text :size="24">以下为你的人物肖像</n-gradient-text>
+      <n-button v-if="showMindmap" @click="navigateToStatistic">前往匹配</n-button>
+    </n-flex>
+    <mindmap v-if="showMindmap" :modelValue="mindmapData" key="mindmap" :drag="true"></mindmap>
     <!-- <chat-input v-model:chat-message="chatMessage" :send-message="getAIResponse" /> -->
-    <n-button v-if="showMindmap" @click="navigateToStatistic">前往匹配</n-button>
+    <!-- <n-button v-if="showMindmap" @click="navigateToStatistic">前往匹配</n-button> -->
   </div>
 </template>
 

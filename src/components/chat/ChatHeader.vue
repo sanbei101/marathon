@@ -11,12 +11,7 @@
         </n-icon>
         <n-p> 临时聊天 </n-p>
       </n-space>
-
-      <n-avatar round size="medium">
-        <n-icon>
-          <PeopleCircleSharp />
-        </n-icon>
-      </n-avatar>
+      <n-avatar round size="large" src="/public/musk.jpg" />
     </n-flex>
   </n-layout-header>
 </template>
