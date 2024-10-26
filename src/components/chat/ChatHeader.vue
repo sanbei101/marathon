@@ -2,7 +2,7 @@
   <n-layout-header>
     <n-flex justify="space-between" align="center" style="padding: 0.3rem 1rem">
       <n-dropdown :options="dropOptions" trigger="click">
-        <n-button tertiary type="success"> 选择模型 </n-button>
+        <n-button tertiary type="success"> 选择模式 </n-button>
       </n-dropdown>
 
       <n-space align="center">
@@ -25,12 +25,12 @@
 import { ChatbubbleOutline, PeopleCircleSharp } from '@vicons/ionicons5';
 const dropOptions = [
   {
-    label: 'Deepseek-Chat',
-    key: 'deepseek-chat'
+    label: '群聊模式',
+    key: 'many'
   },
   {
-    label: 'Deepseek-Coder',
-    key: 'deepseek-coder'
+    label: '单聊模式',
+    key: 'single'
   }
 ];
 </script>

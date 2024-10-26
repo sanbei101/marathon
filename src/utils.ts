@@ -17,6 +17,53 @@ export interface TaroCard {
   name: string;
   mean: string;
 }
+export const CardMeans1: TaroCard[] = [
+  {
+    id: 1,
+    name: '刘亦菲',
+    mean: '天真,单纯,白月光'
+  },
+  {
+    id: 2,
+    name: '范冰冰',
+    mean: '冷艳,霸气,御姐风范'
+  },
+  {
+    id: 3,
+    name: '迪丽热巴',
+    mean: '异域风情,甜美,充满活力'
+  },
+  {
+    id: 4,
+    name: '杨幂',
+    mean: '知性,成熟,高冷气质'
+  },
+  {
+    id: 5,
+    name: '赵丽颖',
+    mean: '可爱,温柔,邻家女孩'
+  },
+  {
+    id: 6,
+    name: '古力娜扎',
+    mean: '神秘,优雅,魅惑'
+  },
+  {
+    id: 7,
+    name: '章子怡',
+    mean: '经典,端庄,国际气质'
+  },
+  {
+    id: 8,
+    name: '杨超越',
+    mean: '青春,直率,邻家少女'
+  },
+  {
+    id: 9,
+    name: '周冬雨',
+    mean: '清新,灵动,自然'
+  }
+];
 
 export const CardMeans: TaroCard[] = [
   { id: 1, name: '愚者', mean: '天真,单纯,可能性' },
@@ -41,6 +88,27 @@ export const GetTaroCardByid = (ids: number[]): TaroCard[] => {
     result.push(card);
   }
   return result;
+};
+export const GetTaroCardByid1 = (ids: number[]): TaroCard[] => {
+  const cardMap = new Map<number, TaroCard>();
+  for (const card of CardMeans1) {
+    cardMap.set(card.id, card);
+  }
+  const result: TaroCard[] = [];
+  for (const id of ids) {
+    const card = cardMap.get(id)!;
+    result.push(card);
+  }
+  return result;
+};
+
+export const GetTaroNameByid1 = (ids: number): string => {
+  const cardMap = new Map<number, TaroCard>();
+  for (const card of CardMeans1) {
+    cardMap.set(card.id, card);
+  }
+  const card = cardMap.get(ids)!;
+  return card.name;
 };
 
 export const GetTaroNameByid = (ids: number): string => {
