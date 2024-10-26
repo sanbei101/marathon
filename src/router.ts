@@ -2,7 +2,7 @@ import { createRouter, createMemoryHistory } from 'vue-router';
 
 const MindMap = () => import('@/components/map/MindMap.vue');
 const TaroCard = () => import('@/components/taro/TaroCard.vue');
-
+const Chat = () => import('@/components/chat/ChatMessage.vue');
 const routes = [
   {
     path: '/',
@@ -18,6 +18,11 @@ const routes = [
     path: '/taro-card',
     name: 'TaroCard',
     component: TaroCard
+  },
+  {
+    path: '/chat',
+    name: 'Chat',
+    component: Chat
   }
 ];
 

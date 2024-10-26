@@ -50,6 +50,16 @@ const menuOptions: MenuOption[] = [
         }
       }),
     icon: renderIcon(SettingsOutline)
+  },
+  {
+    key: 'Chat',
+    label: () =>
+      h(RouterLink, {
+        to: {
+          name: 'Chat'
+        }
+      }),
+    icon: renderIcon(InfiniteOutline)
   }
 ];
 </script>
