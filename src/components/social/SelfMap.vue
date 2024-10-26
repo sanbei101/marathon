@@ -6,6 +6,7 @@
     </div>
     <mindmap v-if="showMindmap" :modelValue="mindmapData" key="mindmap"></mindmap>
     <!-- <chat-input v-model:chat-message="chatMessage" :send-message="getAIResponse" /> -->
+    <n-button v-if="showMindmap">前往匹配</n-button>
   </div>
 </template>
 
