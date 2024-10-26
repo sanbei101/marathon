@@ -32,21 +32,21 @@ const collapsed = ref<boolean>(false);
 
 const menuOptions: MenuOption[] = [
   {
-    key: 'MindMap',
+    key: '问卷',
     label: () =>
       h(RouterLink, {
         to: {
-          name: 'MindMap'
+          name: 'Home'
         }
       }),
     icon: renderIcon(HomeOutline)
   },
   {
-    key: 'TaroCard',
+    key: '个人形象',
     label: () =>
       h(RouterLink, {
         to: {
-          name: 'TaroCard'
+          name: 'PersonMap'
         }
       }),
     icon: renderIcon(SettingsOutline)
