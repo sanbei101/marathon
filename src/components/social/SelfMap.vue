@@ -6,7 +6,7 @@
     </div>
     <mindmap v-if="showMindmap" :modelValue="mindmapData" key="mindmap"></mindmap>
     <!-- <chat-input v-model:chat-message="chatMessage" :send-message="getAIResponse" /> -->
-    <n-button v-if="showMindmap">前往匹配</n-button>
+    <n-button v-if="showMindmap" @click="navigateToStatistic">前往匹配</n-button>
   </div>
 </template>
 
@@ -16,12 +16,17 @@ import { openai } from '@/utils';
 import { system_prompt } from './SelfMapPrompt';
 import 'vue3-mindmap/dist/style.css';
 import { useFormDataStore } from '@/store';
+import { useRouter } from 'vue-router';
+
 const formDataStore = useFormDataStore();
 
 // const chatMessage = ref<string>('');
 const showMindmap = ref(false);
 const isLoading = ref(false);
-
+const router = useRouter();
+const navigateToStatistic = () => {
+  router.push('/statistic');
+};
 type MindMapNode = {
   name: string;
   children?: MindMapNode[];

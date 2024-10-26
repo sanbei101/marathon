@@ -22,7 +22,7 @@ const routes = [
     component: TaroCard
   },
   {
-    path: '/chat',
+    path: '/statistic',
     name: 'Statisic',
     component: Statisic
   },
