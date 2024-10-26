@@ -10,11 +10,8 @@
         <n-layout>
           <!-- 头部 -->
           <chat-header />
-
-          <!-- 聊天消息列表 -->
-          <!-- <chat-message /> -->
-          <MindMap />
-
+          <!-- 路由视图 -->
+          <router-view />
           <!-- 底部输入框 -->
           <chat-input />
         </n-layout>
@@ -23,6 +20,4 @@
   </n-config-provider>
 </template>
 
-<script setup lang="ts">
-import MindMap from './components/map/MindMap.vue';
-</script>
+<script setup lang="ts"></script>

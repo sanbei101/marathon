@@ -12,11 +12,7 @@ const data = ref([
     children: [
       {
         name: '预备知识',
-        children: [
-          { name: 'HTML & CSS' },
-          { name: 'JavaScript' }
-          // 继续添加子节点
-        ]
+        children: [{ name: 'HTML & CSS' }, { name: 'JavaScript' }]
       },
       {
         name: '安装',

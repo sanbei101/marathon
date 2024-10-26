@@ -27,18 +27,28 @@
 import { NIcon, type MenuOption } from 'naive-ui';
 import { HomeOutline, SettingsOutline, InfiniteOutline } from '@vicons/ionicons5';
 import { renderIcon } from '@/utils';
-
+import { RouterLink } from 'vue-router';
 const collapsed = ref<boolean>(false);
 
 const menuOptions: MenuOption[] = [
   {
-    key: 'home',
-    label: '首页',
+    key: 'MindMap',
+    label: () =>
+      h(RouterLink, {
+        to: {
+          name: 'MindMap'
+        }
+      }),
     icon: renderIcon(HomeOutline)
   },
   {
-    key: 'settings',
-    label: '设置',
+    key: 'TaroCard',
+    label: () =>
+      h(RouterLink, {
+        to: {
+          name: 'TaroCard'
+        }
+      }),
     icon: renderIcon(SettingsOutline)
   }
 ];

@@ -8,6 +8,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     AppMenu: typeof import('./components/AppMenu.vue')['default']
+    Card: typeof import('./components/taro/Card.vue')['default']
     ChatBubble: typeof import('./components/chat/ChatBubble.vue')['default']
     ChatHeader: typeof import('./components/chat/ChatHeader.vue')['default']
     ChatInput: typeof import('./components/chat/ChatInput.vue')['default']
@@ -35,5 +36,6 @@ declare module 'vue' {
     NSpace: typeof import('naive-ui')['NSpace']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TaroCard: typeof import('./components/taro/TaroCard.vue')['default']
   }
 }
