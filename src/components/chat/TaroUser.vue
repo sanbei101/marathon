@@ -4,11 +4,12 @@ import { NButton, NModal } from 'naive-ui';
 import Card from './UserCard.vue';
 import { GetTaroCardByid1, TaroCard } from '@/utils';
 import { useRouter } from 'vue-router';
+import { useChatContextStore } from '@/store';
 const loading = ref<boolean>(false);
 const ShowCard = ref<boolean>(false);
 const showModal = ref<boolean>(false);
 const selectedCards = ref<TaroCard[]>([]);
-
+const chatContext = useChatContextStore();
 const handleCardsSelected = (selected: number[]) => {
   selectedCards.value = GetTaroCardByid1(selected);
   console.log(selectedCards.value);
@@ -19,6 +20,9 @@ const handleCardsSelected = (selected: number[]) => {
 const router = useRouter();
 const navigateToChat = () => {
   console.log('navigateToChat');
+  chatContext.setChatArea(Images[currentIndex.value].name);
+  chatContext.setChatUser(selectedCards.value[0].name);
+
   router.push('/social');
 };
 

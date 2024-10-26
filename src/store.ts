@@ -96,12 +96,53 @@ export const useFormDataStore = defineStore('formData', {
 
       // 其他描述
       this.other = data.other;
+    },
+    getFormattedData(): string {
+      return `用户的基本信息：
+      年龄：${this.age ?? '未提供'}
+      职业：${this.occupation || '未提供'}
+
+      个性特征：
+      性格特点：${this.personality || '未提供'}
+      社交类型：${this.socialType || '未提供'}
+      沟通倾向：${this.communicationApproach || '未提供'}
+      沟通风格：${this.communicationStyle || '未提供'}
+      社交偏好：${this.socialPreference || '未提供'}
+
+      兴趣爱好：
+      主要兴趣爱好：${this.hobbies.length > 0 ? this.hobbies.join(', ') : '未提供'}
+      最喜欢的活动：${this.favoriteActivity || '未提供'}
+
+      沟通偏好：
+      沟通语言偏好：${this.communicationTone || '未提供'}
+      分享倾向：${this.sharingPreference || '未提供'}
+
+      情绪管理与表达：
+      情绪表达方式：${this.emotionalExpression || '未提供'}
+      表达愉悦的方式：${this.happyExpression || '未提供'}
+
+      其他描述：
+      ${this.other || '无其他描述'}
+      `;
     }
   }
 });
 
-// export const useChatContextStore = defineStore('chatContext', {
-//   state:()=>({{
-//     chatArea: '',
-//     chatUser: '',
-//   })
+export const useChatContextStore = defineStore('chatContext', {
+  state: () => ({
+    chatArea: '',
+    chatUser: ''
+  }),
+  getters: {
+    getChatArea: (state) => state.chatArea,
+    getChatUser: (state) => state.chatUser
+  },
+  actions: {
+    setChatArea(newChatArea: string) {
+      this.chatArea = newChatArea;
+    },
+    setChatUser(newChatUser: string) {
+      this.chatUser = newChatUser;
+    }
+  }
+});

@@ -18,8 +18,6 @@ import 'vue3-mindmap/dist/style.css';
 import { useFormDataStore } from '@/store';
 import { useRouter } from 'vue-router';
 
-const formDataStore = useFormDataStore();
-
 // const chatMessage = ref<string>('');
 const showMindmap = ref(false);
 const isLoading = ref(false);
@@ -42,56 +40,13 @@ watchEffect(() => {
     showMindmap.value = false;
   }
 });
-const age = computed(() => formDataStore.age);
-const occupation = computed(() => formDataStore.occupation);
-const personality = computed(() => formDataStore.personality);
-const socialType = computed(() => formDataStore.socialType);
-const communicationApproach = computed(() => formDataStore.communicationApproach);
-const communicationStyle = computed(() => formDataStore.communicationStyle);
-const socialPreference = computed(() => formDataStore.socialPreference);
-
-const hobbies = computed(() => formDataStore.hobbies);
-const favoriteActivity = computed(() => formDataStore.favoriteActivity);
-
-const communicationTone = computed(() => formDataStore.communicationTone);
-const sharingPreference = computed(() => formDataStore.sharingPreference);
-
-const emotionalExpression = computed(() => formDataStore.emotionalExpression);
-const happyExpression = computed(() => formDataStore.happyExpression);
-
-const other = computed(() => formDataStore.other);
-
+const useForm = useFormDataStore();
 const getAIResponse = async () => {
   showMindmap.value = false;
   mindmapData.value = [];
   isLoading.value = true;
 
-  const user_prompt = `用户的基本信息：
-年龄：${age.value ?? '未提供'}
-职业：${occupation.value || '未提供'}
-
-个性特征：
-性格特点：${personality.value || '未提供'}
-社交类型：${socialType.value || '未提供'}
-沟通倾向：${communicationApproach.value || '未提供'}
-沟通风格：${communicationStyle.value || '未提供'}
-社交偏好：${socialPreference.value || '未提供'}
-
-兴趣爱好：
-主要兴趣爱好：${hobbies.value.join(', ') || '未提供'}
-最喜欢的活动：${favoriteActivity.value || '未提供'}
-
-沟通偏好：
-沟通语言偏好：${communicationTone.value || '未提供'}
-分享倾向：${sharingPreference.value || '未提供'}
-
-情绪管理与表达：
-情绪表达方式：${emotionalExpression.value || '未提供'}
-表达愉悦的方式：${happyExpression.value || '未提供'}
-
-其他描述：
-${other.value || '无其他描述'}
-`;
+  const user_prompt = useForm.getFormattedData();
   console.log('用户输入:', user_prompt);
   try {
     const stream = await openai.chat.completions.create({
