@@ -68,7 +68,7 @@ const handleModalClose = () => {
 
 <template>
   <div class="container">
-    <n-gradient-text type="info" :size="32" style="font-weight: bolder"> CAU塔罗牌魔法屋 </n-gradient-text>
+    <n-gradient-text type="info" :size="32" style="font-weight: bolder"> 塔罗牌魔法屋 </n-gradient-text>
 
     <n-input v-model:value="MyInput" placeholder="接受指引吧" style="max-width: 60%" />
 

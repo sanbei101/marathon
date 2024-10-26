@@ -13,7 +13,7 @@
           <!-- 路由视图 -->
           <router-view />
           <!-- 底部输入框 -->
-          <chat-input />
+          <!-- <chat-input /> -->
         </n-layout>
       </n-layout>
     </n-message-provider>
