@@ -21,6 +21,30 @@ const navigateToChat = () => {
   console.log('navigateToChat');
   router.push('/social');
 };
+
+const Images = [
+  {
+    src: 'https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel1.jpeg',
+    name: '在校园里轻松漫步'
+  },
+  {
+    src: 'https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel2.jpeg',
+    name: '在城市里city walk'
+  },
+  {
+    src: 'https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel3.jpeg',
+    name: '去武功山攀爬高峰'
+  },
+  {
+    src: 'https://naive-ui.oss-cn-beijing.aliyuncs.com/carousel-img/carousel4.jpeg',
+    name: '去海边看日出'
+  }
+];
+const onIndexUpdate = (newIndex: number) => {
+  currentIndex.value = newIndex;
+  console.log('当前索引:', newIndex); // 实时输出当前索引值
+};
+const currentIndex = ref<number>(0);
 </script>
 
 <template>
@@ -52,8 +76,21 @@ const navigateToChat = () => {
       <n-number-animation ref="numberAnimationInstRef" :from="0.0" :to="24.0" :precision="2" />
       <template #suffix> %</template>
     </n-statistic>
-
-    <n-button @click="navigateToChat"> 看看你们都聊了什么? </n-button>
+    <n-carousel
+      effect="card"
+      prev-slide-style="transform: translateX(-150%) translateZ(-800px);"
+      next-slide-style="transform: translateX(50%) translateZ(-800px);"
+      style="height: 240px"
+      :show-dots="false"
+      :current-index="currentIndex"
+      @update:current-index="onIndexUpdate">
+      <n-carousel-item v-for="(image, index) in Images" :key="index" :style="{ width: '60%' }">
+        <img class="carousel-img" :src="image.src" />
+      </n-carousel-item>
+    </n-carousel>
+    <n-flex justify="center">
+      <n-button @click="navigateToChat">你们决定{{ Images[currentIndex].name }} </n-button>
+    </n-flex>
   </n-modal>
 </template>
 
