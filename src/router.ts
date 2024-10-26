@@ -1,15 +1,16 @@
 import { createRouter, createMemoryHistory } from 'vue-router';
 import SocialMessage from './components/social/SocialMessage.vue';
-const TaroUser = () => import('@/components/chat/TaroUser.vue');
+import PersonSelf from './components/social/PersonSelf.vue';
+// const TaroUser = () => import('@/components/chat/TaroUser.vue');
 const Statisic = () => import('@/components/social/Statistic.vue');
 const MindMap = () => import('@/components/map/MindMap.vue');
-// const TaroCard = () => import('@/components/taro/TaroCard.vue');
-const Chat = () => import('@/components/chat/ChatMessage.vue');
+const TaroCard = () => import('@/components/taro/TaroCard.vue');
+// const Chat = () => import('@/components/chat/ChatMessage.vue');
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Statisic
+    component: PersonSelf
   },
   {
     path: '/mind-map',
@@ -19,12 +20,12 @@ const routes = [
   {
     path: '/taro-card',
     name: 'TaroCard',
-    component: TaroUser
+    component: TaroCard
   },
   {
     path: '/chat',
-    name: 'Chat',
-    component: Chat
+    name: 'Statisic',
+    component: Statisic
   },
   {
     path: '/social',

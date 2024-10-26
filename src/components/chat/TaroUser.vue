@@ -60,7 +60,7 @@ const navigateToChat = () => {
 <style scoped>
 .container {
   margin: 1rem auto;
-  max-width: 90%;
+  max-width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;

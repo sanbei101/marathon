@@ -56,7 +56,7 @@ const menuOptions: MenuOption[] = [
     label: () =>
       h(RouterLink, {
         to: {
-          name: 'Chat'
+          name: 'Statisic'
         }
       }),
     icon: renderIcon(InfiniteOutline)
