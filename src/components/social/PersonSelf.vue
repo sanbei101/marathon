@@ -1,6 +1,6 @@
 <template>
   <n-card title="介绍一下你自己">
-    <n-form @submit.prevent="handleSubmit">
+    <n-form>
       <!-- 性格部分 -->
       <n-form-item label="请描述您的性格">
         <n-input v-model:value="formData.personality" placeholder="请输入您的性格描述" />
@@ -31,25 +31,29 @@
 
       <!-- 提交按钮 -->
       <n-form-item>
-        <n-button type="primary" @click="handleSubmit">提交</n-button>
+        <n-button type="primary" @click="handleSubmit">生成数字肖像</n-button>
       </n-form-item>
     </n-form>
   </n-card>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-
+import { useRouter } from 'vue-router';
+import { useFormDataStore } from '@/store';
+const formDataStore = useFormDataStore();
 const formData = ref({
   personality: '',
   hobbies: [] as string[],
   socialPreference: '',
   other: ''
 });
-
+const router = useRouter();
 const handleSubmit = () => {
-  console.log('表单数据:', formData.value);
-  // 您可以在此处执行提交操作，比如发送到后端API或进一步处理数据
-  alert('表单提交成功！');
+  console.log('点击了提交按钮');
+  // Store the form data in Pinia
+  formDataStore.setFormData(formData.value);
+
+  // Navigate to the next route without passing data via params or query
+  router.push({ name: 'PersonMap' });
 };
 </script>

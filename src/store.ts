@@ -24,3 +24,20 @@ export const useMessageStore = defineStore('messageStore', () => {
     updateMessageContent
   };
 });
+
+export const useFormDataStore = defineStore('formData', {
+  state: () => ({
+    personality: '',
+    hobbies: [] as string[],
+    socialPreference: '',
+    other: ''
+  }),
+  actions: {
+    setFormData(data: { personality: string; hobbies: string[]; socialPreference: string; other: string }) {
+      this.personality = data.personality;
+      this.hobbies = data.hobbies;
+      this.socialPreference = data.socialPreference;
+      this.other = data.other;
+    }
+  }
+});
