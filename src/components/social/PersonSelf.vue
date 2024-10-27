@@ -85,6 +85,9 @@
           placeholder="例如：笑脸表情、直接表达、幽默语言等" />
       </n-form-item>
       <n-form-item>
+        <n-checkbox size="large">
+          我同意按照隐私政策处理我的个人信息
+        </n-checkbox>
         <n-button type="primary" @click="handleSubmit">生成数字肖像</n-button>
       </n-form-item>
     </n-form>
